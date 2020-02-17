@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import ProfilePage from './components/profile_page/ProfilePage';
 import BusPage from './components/bus_page/BusPage';
-import Profile from './components/profile_page/Profile';
+import ButtonWithProps from './components/button/ButtonWithProps';
+import CarPage from './components/car_page/CarPage';
 
 class App extends Component {
   constructor(props) {
@@ -12,9 +13,20 @@ class App extends Component {
     };
   }
 
-  onNavButtonClicked = (navpage) => {
-    this.setState({ navpage });
+  handleNavButtonClicked = (navpage) => {
+    if (navpage === 'buspage') {
+      this.setState({ pageToRender: <BusPage />})
+    } else if (navpage === 'profilepage') {
+      this.setState({ pageToRender: <ProfilePage />})
+    } else if (navpage === 'carpage') {
+      this.setState({ pageToRender: <CarPage />})
+    }
+    // this.setState({ navpage });
   };
+
+  handleButtonClicked = (text) => {
+    console.log(text);
+  }
 
   render() {
     const { navpage } = this.state;
@@ -23,8 +35,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <button onClick={() => this.onNavButtonClicked('buspage')}>Bus Page</button>
-        <button onClick={() => this.onNavButtonClicked('profilepage')}>Profile Page</button>
+        <ButtonWithProps buttonText={"Submit"} customStyle={{ backgroundColor: "red" }} 
+                        onButtonClicked={() => this.handleButtonClicked("First button ever created clicked")} />
+        <button onClick={() => this.handleNavButtonClicked('buspage')}>Bus Page</button>
+        <button onClick={() => this.handleNavButtonClicked('profilepage')}>Profile Page</button>
+        <button onClick={() => this.handleNavButtonClicked('carpage')}>Car Page</button>
         { navpage === 'buspage' ? 
           <BusPage /> 
           :
