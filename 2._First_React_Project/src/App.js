@@ -9,42 +9,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navpage: 'buspage'
+      pageToRender: undefined
     };
   }
-
-  handleNavButtonClicked = (navpage) => {
-    if (navpage === 'buspage') {
-      this.setState({ pageToRender: <BusPage />})
-    } else if (navpage === 'profilepage') {
-      this.setState({ pageToRender: <ProfilePage />})
-    } else if (navpage === 'carpage') {
-      this.setState({ pageToRender: <CarPage />})
-    }
-    // this.setState({ navpage });
-  };
 
   handleButtonClicked = (text) => {
     console.log(text);
   }
 
   render() {
-    const { navpage } = this.state;
-
-    console.log("this is the nav value:", navpage);
+    const { pageToRender } = this.state;
 
     return (
       <div className="App">
-        <ButtonWithProps buttonText={"Submit"} customStyle={{ backgroundColor: "red" }} 
-                        onButtonClicked={() => this.handleButtonClicked("First button ever created clicked")} />
-        <button onClick={() => this.handleNavButtonClicked('buspage')}>Bus Page</button>
-        <button onClick={() => this.handleNavButtonClicked('profilepage')}>Profile Page</button>
-        <button onClick={() => this.handleNavButtonClicked('carpage')}>Car Page</button>
-        { navpage === 'buspage' ? 
-          <BusPage /> 
-          :
-          <ProfilePage />
-        }
+        <ButtonWithProps buttonText={"Bus Page"} customStyle={{ backgroundColor: "yellow" }} 
+                        onButtonClicked={() => this.setState({ pageToRender: <BusPage />})} />
+        <ButtonWithProps buttonText={"Car Page"} customStyle={{ backgroundColor: "grey" }} 
+                        onButtonClicked={() => this.setState({ pageToRender: <CarPage />})} />
+        <ButtonWithProps buttonText={"Profile Page"}  
+                        onButtonClicked={() => this.setState({ pageToRender: <ProfilePage />})} />                      
+        { pageToRender }
       </div>
     );
   }
