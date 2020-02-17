@@ -4,6 +4,7 @@ import ProfilePage from './components/profile_page/ProfilePage';
 import BusPage from './components/bus_page/BusPage';
 import ButtonWithProps from './components/button/ButtonWithProps';
 import CarPage from './components/car_page/CarPage';
+import ButtonWithChildren from './components/button/ButtonWithChildren';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
         <ButtonWithProps buttonText={"Profile Page"}  
                         onButtonClicked={() => this.setState({ pageToRender: <ProfilePage />})} />                      
         { pageToRender }
+        <ButtonWithChildren>Custom Button Text</ButtonWithChildren>
       </div>
     );
   }

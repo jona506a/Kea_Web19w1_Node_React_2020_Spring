@@ -1,4 +1,4 @@
-.button-with-props {
+.button-with-props, .button-with-children {
     min-width: 10em;
     min-height: 3em;
     border-radius: 10%;
