@@ -9,10 +9,11 @@ export default class Theme extends Component {
 /*     } */
 
     render() {
+        
         return (
             <div>
                 <input type="color" onChange={(event) => this.setState({ color: event.target.value })}/>
-                <button onClick={() => console.log("Button was clicked", this.state.color)} >Submit theme color</button>
+                <button onClick={() => this.props.handleThemeChange(this.state.color)} >Submit theme color</button>
             </div>
         );
     }
