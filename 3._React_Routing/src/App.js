@@ -6,22 +6,30 @@ import Theme from './pages/theme/Theme';
 import Form from './pages/form/Form';
 
 class App extends Component {
-  constructor(props) {
+/*   constructor(props) {
     super(props);
-    this.state = {
-      backgroundColor: undefined
+    this. */state = {
+      backgroundColor: undefined,
+      welcomeMessage: "Hello dear stranger!"
     }
-    this.onThemeChange = this.onThemeChange.bind(this);
-  }
+/*     this.onThemeChange = this.onThemeChange.bind(this);
+  } */
 
-  onThemeChange(backgroundColor) {
+  onThemeChange = (backgroundColor) => {
     console.log("This is the color", backgroundColor);
-    console.log(this);
     this.setState({ backgroundColor });
   }
 
+  onNameChange = (firstName, lastName) => {
+    console.log("let me log those ", firstName, lastName);
+    if (firstName !== "" && lastName !== "") {
+      const welcomeMessage = `Welcome back ${firstName} ${lastName}.`;
+      this.setState({ welcomeMessage });
+    }
+  }
+
   render() {
-    const { backgroundColor } = this.state;
+    const { backgroundColor, welcomeMessage } = this.state;
 
     return (
       <Router >
@@ -44,16 +52,16 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/">
-              <h1>This is the index route</h1>
+              <h1>{welcomeMessage}</h1>
+            </Route>
+            <Route path="/form"
+              component={(props) => <Form {...props} handleNameChange={this.onNameChange} />} >
             </Route>
             <Route path="/theme" 
               component={(props) => <Theme {...props} handleThemeChange={this.onThemeChange} />} >
             </Route>
             <Route path="/about" 
               component={(props) => <About {...props} />} >
-            </Route>
-            <Route path="/form"
-              component={(props) => <Form {...props} />} >
             </Route>
           </Switch>
         </div>
