@@ -10,15 +10,19 @@ export default class Form extends Component {
         this.setState({[event.target.id]: event.target.value });
     }
 
-    render() {
+    onFormSubmit = () => {
         const { firstName, lastName } = this.state;
-        const { handleNameChange } = this.props;
-        
+
+        this.props.handleNameChange(firstName, lastName);
+        this.props.history.push("/");
+    }
+
+    render() {        
         return (
             <div>
                 <input id="firstName" placeholder="First name" onChange={this.handleInputChange} />
                 <input id="lastName" placeholder="Last name" onChange={this.handleInputChange} />
-                <button onClick={() => handleNameChange(firstName, lastName)}>Submit</button>
+                <button onClick={this.onFormSubmit}>Submit</button>
             </div>
         );
     }

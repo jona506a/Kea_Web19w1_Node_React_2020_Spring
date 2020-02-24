@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   onNameChange = (firstName, lastName) => {
-    console.log("let me log those ", firstName, lastName);
     if (firstName !== "" && lastName !== "") {
       const welcomeMessage = `Welcome back ${firstName} ${lastName}.`;
       this.setState({ welcomeMessage });
