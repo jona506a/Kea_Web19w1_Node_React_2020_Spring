@@ -15,15 +15,15 @@ export default class Table extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {
-                                rows.map((row, index) => {
-                                    return columns.map(column => {
-                                        return (<td key={column + index} >{row[column.toLowerCase()]}</td>);
-                                    })
-                                })
-                            }
-                        </tr>
+                        {
+                            rows.map((row, index) => (
+                                <tr>
+                                { columns.map(column => (
+                                    <td key={column + index} >{row[column.toLowerCase()]}</td>
+                                ))}
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>
