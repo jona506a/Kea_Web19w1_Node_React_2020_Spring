@@ -5,6 +5,7 @@ import About from './pages/about/About';
 import Theme from './pages/theme/Theme';
 import Form from './pages/form/Form';
 import { FaBeer, FaHamsa } from 'react-icons/fa';
+import Cities from './pages/cities/Cities';
 
 class App extends Component {
 /*   constructor(props) {
@@ -56,6 +57,9 @@ class App extends Component {
                 <Link to="/theme">Theme</Link>
               </ul>
               <ul>
+                <Link to="/cities">Cities</Link>
+              </ul>
+              <ul>
                 <Link to="/about">About</Link>
               </ul>
           </nav>
@@ -69,6 +73,9 @@ class App extends Component {
             </Route>
             <Route path="/theme" 
               component={(props) => <Theme {...props} handleThemeChange={this.onThemeChange} />} >
+            </Route>
+            <Route path="/cities" 
+              component={(props) => <Cities />} >
             </Route>
             <Route path="/about" 
               component={(props) => <About {...props} />} >
