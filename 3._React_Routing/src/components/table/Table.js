@@ -17,9 +17,9 @@ export default class Table extends Component {
                     <tbody>
                         {
                             rows.map((row, index) => (
-                                <tr>
+                                <tr key={"table-row"+index}>
                                 { columns.map(column => (
-                                    <td key={column + index} >{row[column.toLowerCase()]}</td>
+                                    <td key={column + index} >{row[column]}</td>
                                 ))}
                                 </tr>
                             ))
