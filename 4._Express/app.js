@@ -7,8 +7,11 @@ app.use(express.urlencoded({ extended: false }));
 // parse application/json
 app.use(express.json());
 
+app.use(express.static('public'));
+
+
 app.get("/", (req, res) => {
-    return res.send({ status: "The API is up and running" });
+    return res.sendFile(__dirname + "/public/index.html"); 
 });
 
 app.get("/pathvariable/:customvalue/:multiple", (req, res) => {
