@@ -3,6 +3,7 @@ exports.up = function(knex) {
         .createTable('users', (table) => {
             table.increments('id');
             table.string('username');
+            table.string('password');
             table.string('first_name');
             table.string('last_name');
             table.timestamp('created_at').defaultTo(knex.fn.now());
