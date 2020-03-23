@@ -4,6 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "migrate:latest": "knex migrate:latest",
+    "migrate:make": "knex migrate:make",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed:make": "knex seed:make",
+    "seed:run": "knex seed:run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
