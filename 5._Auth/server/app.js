@@ -15,12 +15,10 @@ const knex = Knex(knexFile.development);
 // Give the knex instance to objection.
 Model.knex(knex);
 
+/* Set up routes with our server instance */
+const usersRoute = require("./routes/users.js");
 
-app.get("/", async (req, res) => {
-    const addresses = "";
-    return res.send({ addresses });
-});
-
+app.use(usersRoute);
 
 /* Start the server */
 
