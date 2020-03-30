@@ -20,6 +20,7 @@ const usersRoute = require("./routes/users.js");
 
 app.use(usersRoute);
 
+
 /* Start the server */
 
 const port = process.env.PORT || 9090;
