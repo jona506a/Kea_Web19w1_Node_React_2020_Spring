@@ -9,8 +9,13 @@ router.use((req, res, next) => {
 });
 
 
+router.get("/secondpath", (req, res, next) => {
+    console.log("Hit the second path - for the first time");
+    next();
+});
+
 router.get("/secondpath", (req, res) => {
-    console.log("Hit the second path");
+    console.log("Hit the second path - for the second time");
     return res.send({ response: "second path" });
 });
 

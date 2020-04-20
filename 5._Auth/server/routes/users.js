@@ -36,8 +36,6 @@ router.post("/users/login", async (req, res) => {
 
 router.post("/users/register", (req, res) => {
     const { username, password, repeatPassword } = req.body;
-
-    console.log(password, repeatPassword, password === repeatPassword);
     
     if (username && password && repeatPassword && password === repeatPassword) {
         if (password.length < 8) {

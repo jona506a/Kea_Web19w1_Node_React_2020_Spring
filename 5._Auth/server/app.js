@@ -32,7 +32,7 @@ const playgroundRoute = require("./routes/playground.js");
 const usersRoute = require("./routes/users.js");
 
 // only use the custom middleware for the secondpath route
-//app.use(playgroundRoute);
+// app.use(playgroundRoute);
 app.use(usersRoute);
 
 
